@@ -8,6 +8,8 @@ clear custom_choice
 menu AergernisGaming custom menu
 item --gap iVentoy:
 item iventoy ${space} iVentoy
+item iventoy2 ${space} iVentoy test
+item iventoy3 ${space} iVentoy test 2
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -18,6 +20,20 @@ iseq ${platform} efi && set iventoy_loader iventoy_loader_16000_uefi || set iven
 set user-class MyCustomClass
 dhcp
 chain tftp://${next-server}/${iventoy_loader}
+
+:iventoy2
+iseq ${platform} efi && set iventoy_loader iventoy_loader_16000_uefi || set iventoy_loader iventoy_loader_16000_bios
+set next-server 192.168.199.6
+set filename ${iventoy_loader}
+#chain tftp://${next-server}/${iventoy_loader}
+boot
+
+:iventoy3
+iseq ${platform} efi && set iventoy_loader iventoy_loader_16000_uefi || set iventoy_loader iventoy_loader_16000_bios
+set next-server 192.168.199.6
+set filename ${iventoy_loader}
+chain tftp://${next-server}/${iventoy_loader}
+#boot
 
 :custom_exit
 exit
