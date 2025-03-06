@@ -1,4 +1,7 @@
 #!ipxe
+###
+### AergernisGaming custom menu
+###
 
 :custom
 clear custom_choice
