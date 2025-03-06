@@ -1,3 +1,5 @@
+#!ipxe
+
 :custom
 clear custom_choice
 menu AergernisGaming custom menu
