@@ -1,12 +1,18 @@
-#!ipxe
-###
-### netboot.xyz-custom menu
-###
-
-:start
-echo Hello world!
-sleep 10
+:custom
+clear custom_choice
+menu AergernisGaming custom menu
+item --gap iVentoy:
+item iventoy ${space} iVentoy
+choose custom_choice || goto custom_exit
+echo ${cls}
+goto ${custom_choice}
 goto custom_exit
 
+:iventoy
+iseq ${platform} efi && set iventoy_loader iventoy_loader_16000_uefi || set iventoy_loader iventoy_loader_16000_bios
+set user-class MyCustomClass
+dhcp
+chain tftp://${next-server}/${iventoy_loader}
+
 :custom_exit
-exit 0
+exit
