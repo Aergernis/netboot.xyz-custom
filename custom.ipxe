@@ -4,7 +4,8 @@
 clear custom_choice
 menu AergernisGaming custom menu
 item --gap iVentoy:
-item iventoy ${space} iVentoy
+item iventoy ${space} iVentoy Boot
+item iventoy2 ${space} iVentoy Chain
 item iso ${space} ISO
 choose custom_choice || goto custom_exit
 echo ${cls}
@@ -15,8 +16,13 @@ goto custom_exit
 set bios iventoy
 set user-class ${bios}
 dhcp
-#chain --autofree tftp://${next-server}/${iventoy_loader}
 boot
+
+:iventoy2
+set bios iventoy
+set user-class ${bios}
+dhcp
+chain --autofree tftp://${next-server}/iventoy_loader_16000
 
 :iso
 kernel https://boot.netboot.xyz/memdisk iso raw
