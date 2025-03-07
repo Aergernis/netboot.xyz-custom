@@ -12,11 +12,11 @@ goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-iseq ${platform} efi && set iventoy_loader iventoy_loader_16000_uefi || set iventoy_loader iventoy_loader_16000_bios
-iseq ${platform} efi && set bios iventoy_uefi || set bios iventoy_bios
+set bios iventoy
 set user-class ${bios}
 dhcp
-chain --autofree tftp://${next-server}/${iventoy_loader}
+#chain --autofree tftp://${next-server}/${iventoy_loader}
+boot
 
 :iso
 kernel https://boot.netboot.xyz/memdisk iso raw
