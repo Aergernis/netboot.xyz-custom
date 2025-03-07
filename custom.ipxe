@@ -19,8 +19,7 @@ dhcp
 boot
 
 :iventoy2
-set bios iventoy
-set user-class ${bios}
+set user-class iventoy
 dhcp
 chain --autofree tftp://${next-server}/iventoy_loader_16000
 
