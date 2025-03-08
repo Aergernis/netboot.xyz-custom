@@ -6,27 +6,20 @@ menu AergernisGaming custom menu
 item --gap iVentoy:
 item iventoy ${space} iVentoy Boot
 item iventoy2 ${space} iVentoy Chain
-item iso ${space} ISO
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-set bios iventoy
-set user-class ${bios}
+set user-class iventoy
 dhcp
-boot
+imgexec --replace tftp://${next-server}/iventoy_loader_16000_uefi
 
 :iventoy2
 set user-class iventoy
 dhcp
 chain --autofree tftp://${next-server}/iventoy_loader_16000_uefi
-
-:iso
-kernel https://boot.netboot.xyz/memdisk iso raw
-initrd http://192.168.199.6:16000/riso/pmd5/21f191ba3ff890301c80067e539d8379.iso
-boot
 
 :custom_exit
 exit
