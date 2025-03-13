@@ -5,7 +5,6 @@ clear custom_choice
 menu AergernisGaming custom menu
 item --gap iVentoy:
 item iventoy ${space} iVentoy
-item iventoy2 ${space} iVentoy Chain
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -14,7 +13,7 @@ goto custom_exit
 :iventoy
 set user-class iventoy
 dhcp
-imgexec --replace tftp://${next-server}/iventoy_loader_16000_uefi
+chain tftp://${next-server}/iventoy_loader_16000
 
 :custom_exit
 exit
