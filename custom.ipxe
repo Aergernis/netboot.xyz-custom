@@ -13,7 +13,7 @@ goto custom_exit
 :iventoy
 set user-class iventoy
 dhcp
-chain tftp://${next-server}/iventoy_loader_16000
+chain tftp://${next-server}/iventoy_loader_16000_uefi
 
 :custom_exit
 exit
