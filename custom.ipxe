@@ -5,16 +5,27 @@ clear custom_choice
 menu AergernisGaming custom menu
 item --gap iVentoy:
 item iventoy ${space} iVentoy
+item iventoy2 ${space} iVentoy2
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-set user-class iventoy
+set user-class iVentoy
 dhcp
 set user-class 
 chain tftp://${next-server}/iventoy_loader_16000_uefi
+
+:iventoy2
+# set user-class iVentoy
+set newserver:ipv4 192.168.199.6
+set newbootfile iventoy_loader_16000_uefi
+set net0/next-server ${newserver}
+set net1/next-server ${newserver}
+set net0/filename ${newbootfile}
+set net1/filename ${newbootfile}
+chain tftp://${newserver}/iventoy_loader_16000
 
 :custom_exit
 exit
