@@ -12,7 +12,4 @@ goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-iseq ${platform} efi && echo ${platform} ||
-
-:custom_exit
-exit
+iseq ${platform} efi && echo ${platform}
