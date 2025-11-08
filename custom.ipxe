@@ -12,13 +12,19 @@ goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-#iseq ${platform} efi && goto is_efi || goto not_efi
-#:efi
-set user-class iVentoy
+iseq ${platform} efi && goto is_efi || goto not_efi
+
+:efi
+set user-class iVentoyEFI
 dhcp
 set user-class 
-#chain tftp://${next-server}/iventoy_loader_16000_uefi
-chain tftp://${next-server}/iventoy_loader_16000
+chain tftp://${next-server}/iventoy_loader_16000_uefi
+
+:not_efi
+set user-class iVentoyBIOS
+dhcp
+set user-class 
+chain tftp://${next-server}/iventoy_loader_16000_bios
 
 :iventoy2
 # set user-class iVentoy
