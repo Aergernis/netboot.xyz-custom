@@ -14,7 +14,7 @@ goto custom_exit
 :iventoy
 echo ${platform}
 echo ${archbuild}
-iseq ${platform} efi && echo ${platfrom} && echo ${buildarch} #goto is_efi || goto not_efi
+iseq ${platform} efi && echo ${platform} && echo ${buildarch} #goto is_efi || goto not_efi
 
 #:is_efi
 #set user-class iVentoyEFI
