@@ -14,7 +14,7 @@ goto custom_exit
 :iventoy
 iseq ${platform} efi && goto is_efi || goto not_efi
 
-:efi
+:is_efi
 set user-class iVentoyEFI
 dhcp
 set user-class 
