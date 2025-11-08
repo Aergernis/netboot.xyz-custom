@@ -11,4 +11,4 @@ goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-iseq ${platform} efi && set user-class iVentoyEFI && dhcp && chain tftp://${next-server}/iventoy_loader_16000_uefi || set user-class iVentoyBIOS && dhcp && chain tftp://${next-server}/iventoy_loader_16000_bios
+iseq ${platform} efi && set user-class iVentoyEFI && dhcp && autoboot || set user-class iVentoyBIOS && dhcp && chain tftp://${next-server}/iventoy_loader_16000_bios
