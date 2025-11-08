@@ -5,7 +5,7 @@ clear custom_choice
 menu AergernisGaming custom menu
 item --gap iVentoy:
 item iventoy ${space} iVentoy
-item iventoy2 ${space} iVentoy2
+#item iventoy2 ${space} iVentoy2
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
