@@ -11,4 +11,4 @@ goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-iseq ${platform} efi && set user-class iVentoyEFI && dhcp && autoboot || set user-class iVentoyBIOS && dhcp && autoboot
+iseq ${platform} efi && set user-class iVentoyEFI && dhcp && autoboot net0 net1 net2 || set user-class iVentoyBIOS && dhcp && autoboot net0 net1 net2
