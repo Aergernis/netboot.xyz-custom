@@ -14,7 +14,7 @@ goto custom_exit
 :iventoy
 echo ${platform}
 echo ${archbuild}
-iseq ${platform} efi && echo ${platform} && echo ${buildarch} #goto is_efi || goto not_efi
+iseq ${platform} efi && echo ${platform} && echo ${buildarch}
 
 #:is_efi
 #set user-class iVentoyEFI
@@ -29,16 +29,6 @@ iseq ${platform} efi && echo ${platform} && echo ${buildarch} #goto is_efi || go
 #set user-class 
 #chain tftp://${next-server}/iventoy_loader_16000_bios
 #goto custom_exit
-
-:iventoy2
-# set user-class iVentoy
-set newserver:ipv4 192.168.199.6
-set newbootfile iventoy_loader_16000_uefi
-set net0/next-server ${newserver}
-set net1/next-server ${newserver}
-set net0/filename ${newbootfile}
-set net1/filename ${newbootfile}
-chain tftp://${newserver}/iventoy_loader_16000
 
 :custom_exit
 exit
