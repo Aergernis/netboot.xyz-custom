@@ -12,23 +12,7 @@ goto ${custom_choice}
 goto custom_exit
 
 :iventoy
-echo ${platform}
-echo ${archbuild}
-iseq ${platform} efi && echo ${platform} && echo ${buildarch} ||
-
-#:is_efi
-#set user-class iVentoyEFI
-#dhcp
-#set user-class 
-#chain tftp://${next-server}/iventoy_loader_16000_uefi
-#goto custom_exit
-
-#:not_efi
-#set user-class iVentoyBIOS
-#dhcp
-#set user-class 
-#chain tftp://${next-server}/iventoy_loader_16000_bios
-#goto custom_exit
+iseq ${platform} efi && echo ${platform} ||
 
 :custom_exit
 exit
